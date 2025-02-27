@@ -3,6 +3,21 @@ import pandas as pd
 import math
 import os
 
+# Pastikan ini adalah perintah pertama
+st.set_page_config(page_title='Database 2024 - EDII', layout='wide')
+
+# CSS untuk mengatur skala halaman menjadi 80%
+st.markdown(
+    """
+    <style>
+    .main .block-container {
+        max-width: 80%;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 @st.cache_data
 def load_data(file_path):
     try:
@@ -15,8 +30,7 @@ def load_data(file_path):
         st.error(f"Terjadi kesalahan: {e}")
         return None
 
-st.set_page_config(page_title='Database 2024 - EDII', layout='wide')
-
+# Sisanya tetap sama
 image_path = os.path.join("static", "LOGISTEED.PNG")
 if os.path.exists(image_path):
     st.image(image_path, width=250)
@@ -100,13 +114,7 @@ def main():
             </style>
         """, unsafe_allow_html=True)
 
-        st.dataframe(results, use_container_width=True, hide_index=True)
-
-        if (selected_column not in ["Pilih Kolom"] and keyword) or selected_column == "TANGGAL PENGAJUAN":
-            file_path = convert_df_to_excel(results)
-            with open(file_path, "rb") as f:
-                st.download_button("📥 Download Hasil Pencarian", f, file_name="Hasil_Pencarian.xlsx", mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-
+        # Pagination
         page_size = 100
         num_pages = math.ceil(len(results) / page_size)
         page_num = st.session_state.get('page_num', 1)
@@ -115,6 +123,13 @@ def main():
         start_index = (page_num - 1) * page_size
         end_index = start_index + page_size
         paged_results = results.iloc[start_index:end_index].copy()
+
+        st.dataframe(paged_results, use_container_width=True, hide_index=True)
+
+        if (selected_column not in ["Pilih Kolom"] and keyword) or selected_column == "TANGGAL PENGAJUAN":
+            file_path = convert_df_to_excel(results)
+            with open(file_path, "rb") as f:
+                st.download_button("📥 Download Hasil Pencarian", f, file_name="Hasil_Pencarian.xlsx", mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
         col1, col2, col3 = st.columns([1, 3, 1])
         with col2:
