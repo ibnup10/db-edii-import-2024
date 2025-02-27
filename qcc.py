@@ -6,8 +6,10 @@ import os
 @st.cache_data
 def load_data(file_path):
     try:
-        df = pd.read_excel(file_path).astype(str)
-        return df.reset_index(drop=True)
+        df = pd.read_excel(file_path)
+        if 'TANGGAL PROSES' in df.columns:
+            df['TANGGAL PROSES'] = pd.to_datetime(df['TANGGAL PROSES'], errors='coerce') # Menangani kesalahan konversi
+        return df.astype(str).reset_index(drop=True)
     except FileNotFoundError:
         st.error(f"File {file_path} tidak ditemukan.")
         return None
@@ -37,6 +39,7 @@ def search_data(data, keyword, column=None):
         return data[data.apply(lambda row: any(keyword in str(val).lower() for val in row), axis=1)]
 
 def main():
+   def main():
     st.title("Database Import Shipment 2024 - EDII")
     data = load_data('database_2024.xlsx')
 
@@ -44,8 +47,15 @@ def main():
         columns = ["Semua Kolom"] + data.columns.tolist()
         selected_column = st.selectbox("Cari di kolom:", columns)
         keyword = st.text_input("Masukkan kata kunci pencarian:")
-        results = search_data(data, keyword, selected_column) if keyword else data
 
+        # Tambahkan filter tanggal
+        if 'tanggal proses' in data.columns:
+            start_date, end_date = st.date_input("Filter Tanggal Proses", [data['tanggal proses'].min(), data['tanggal proses'].max()])
+            mask = (pd.to_datetime(data['tanggal proses']) >= pd.to_datetime(start_date)) & (pd.to_datetime(data['tanggal proses']) <= pd.to_datetime(end_date))
+            filtered_data = data[mask]
+        else:
+            filtered_data = data
+        results = search_data(filtered_data, keyword, selected_column) if keyword else filtered_data
         # Tampilkan pesan hanya saat ada kata kunci
         if keyword:
             st.markdown("<h3 style='font-weight: bold;'>NOTE</h3>", unsafe_allow_html=True)
