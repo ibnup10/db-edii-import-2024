@@ -50,7 +50,7 @@ def main():
         if keyword:
             st.markdown("<h3 style='font-weight: bold;'>NOTE</h3>", unsafe_allow_html=True)
             st.markdown("""
-            <p style='color: white;'>- Please always check BM Tarif on <a href='https://insw.go.id/intr' style='color: blue; font-style: italic;'>INSW</a><br>
+            <p style=''>- Please always check BM Tarif on <a href='https://insw.go.id/intr' style='color: blue; font-style: italic;'>INSW</a><br>
             <span>- Same HS Code but one of them have a 0 (zero) and different BM Tarif, Might be process with E-COO or Original CO<span><br>
             <span style='font-style: oblique;'>- Check the name of goods on the invoice and this database before copy-paste it with carefully!</span></p>""", unsafe_allow_html=True)
 
