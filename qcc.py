@@ -66,7 +66,7 @@ def main():
     data = load_data('database_2024.xlsx')
 
     if data is not None:
-        # Pastikan kolom KODE DOKUMEN dan KODE FASILITAS berupa string
+        # Pastikan kolom KODE DOKUMEN dan KODE FASILITAS berupa string dan NaN diganti dengan string kosong
         if 'KODE DOKUMEN' in data.columns:
             data['KODE DOKUMEN'] = data['KODE DOKUMEN'].fillna('').astype(str)
         if 'KODE FASILITAS' in data.columns:
@@ -118,6 +118,7 @@ def main():
         # Menghapus kolom yang tidak perlu
         results = results.drop(columns=columns_to_remove, errors='ignore')
 
+        # Tampilkan dataframe hasil pencarian
         st.write("Hasil Pencarian:")
 
         # 🔹 **Menampilkan Tabel tanpa Toolbar (Find, Download, Fullscreen)**
