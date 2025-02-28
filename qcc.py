@@ -21,7 +21,7 @@ st.markdown(
 @st.cache_data
 def load_data(file_path):
     try:
-        df = pd.read_excel(file_path).astype(str)
+        df = pd.read_excel(file_path).astype(str)  # Membaca data sebagai string secara default
         return df.reset_index(drop=True)
     except FileNotFoundError:
         st.error(f"File {file_path} tidak ditemukan.")
@@ -66,6 +66,12 @@ def main():
     data = load_data('database_2024.xlsx')
 
     if data is not None:
+        # Pastikan kolom KODE DOKUMEN dan KODE FASILITAS berupa string
+        if 'KODE DOKUMEN' in data.columns:
+            data['KODE DOKUMEN'] = data['KODE DOKUMEN'].fillna('').astype(str)
+        if 'KODE FASILITAS' in data.columns:
+            data['KODE FASILITAS'] = data['KODE FASILITAS'].fillna('').astype(str)
+
         # Menentukan kolom yang dapat dicari (membuang kolom yang ada di columns_to_remove)
         searchable_columns = ["Pilih Kolom"] + [col for col in data.columns if col not in columns_to_remove + unsearchable_columns]
 
