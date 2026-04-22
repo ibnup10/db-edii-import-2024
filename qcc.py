@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import math
 import os
-import streamlit.components.v1 as components
 
 # Konfigurasi halaman Streamlit
 st.set_page_config(page_title='Database - EDII', layout='wide')
@@ -190,6 +189,7 @@ def main():
         st.write("Updated 23-04-2026 by Hamba Allah")
         st.divider()
         
+import streamlit.components.v1 as components        
 audio_file = "static/music.mp3"
 components.html(f"""
 <div style="
