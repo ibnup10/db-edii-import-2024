@@ -189,4 +189,4 @@ def main():
 # Menjalankan aplikasi
 if __name__ == "__main__":
     main()
-    st.write("Updated 23-04-2026 by Hamba Allah")
+    st.write("Updated 23-04-2026 by EDII Team")
