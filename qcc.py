@@ -248,7 +248,7 @@ function setVolume(val) {{
 st.markdown(audio_html, unsafe_allow_html=True)
 
 <img src="https://tenor.com/view/cat-scuba-dance-gif-5034219186050115128" width="50">
-<span>🎵 Now Playing</span>
+<span>Now Playing</span>
 
 # Menjalankan aplikasi
 if __name__ == "__main__":
