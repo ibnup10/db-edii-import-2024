@@ -191,9 +191,9 @@ def main():
         
 import streamlit.components.v1 as components
 
-audio_file = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+import streamlit.components.v1 as components
 
-components.html(f"""
+components.html("""
 <div style="
     position:fixed;
     bottom:0;
@@ -204,19 +204,17 @@ components.html(f"""
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:15px;
-    color:white;
-    font-family:sans-serif;
+    z-index:9999;
 ">
 
-    <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="50">
-
-    <audio controls autoplay loop>
-        <source src="{audio_file}" type="audio/mpeg">
-    </audio>
+    <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150"
+    style="width:100%;max-width:500px;overflow:hidden;border-radius:10px;"
+    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+    src="https://embed.music.apple.com/us/album/kicau-mania-single/1870566298">
+    </iframe>
 
 </div>
-""", height=90, scrolling=False)
+""", height=170)
 # Menjalankan aplikasi
 if __name__ == "__main__":
     main()
