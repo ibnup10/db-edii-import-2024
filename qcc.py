@@ -200,16 +200,16 @@ audio_html = f"""
     bottom:0;
     left:0;
     width:100%;
-    background:rgba(0,0,0,0.9);
+    background:black;
     padding:10px;
     display:flex;
     justify-content:center;
     align-items:center;
     gap:15px;
     color:white;
+    z-index:9999;
 ">
 
-    <!-- ✅ GIF HARUS DI DALAM STRING -->
     <img src="https://tenor.com/view/cat-scuba-dance-gif-5034219186050115128" width="50">
 
     <button onclick="toggleMusic()">▶️ / ⏸️</button>
@@ -219,7 +219,7 @@ audio_html = f"""
 </div>
 
 <script>
-var music = document.getElementById("bg-music");
+const music = document.getElementById("bg-music");
 
 function toggleMusic() {{
     if (music.paused) {{
