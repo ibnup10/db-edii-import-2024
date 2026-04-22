@@ -191,10 +191,6 @@ def main():
 audio_file = "static/music.mp3"
 
 audio_html = f"""
-<audio id="bg-music" autoplay loop>
-    <source src="{audio_file}" type="audio/mpeg">
-</audio>
-
 <div style="
     position:fixed;
     bottom:0;
@@ -212,27 +208,11 @@ audio_html = f"""
 
     <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="50">
 
-    <button onclick="toggleMusic()">▶️ / ⏸️</button>
+    <audio controls autoplay loop style="height:30px;">
+        <source src="{audio_file}" type="audio/mpeg">
+    </audio>
 
-    <input type="range" min="0" max="1" step="0.01" value="0.5"
-        onchange="setVolume(this.value)">
 </div>
-
-<script>
-const music = document.getElementById("bg-music");
-
-function toggleMusic() {{
-    if (music.paused) {{
-        music.play();
-    }} else {{
-        music.pause();
-    }}
-}}
-
-function setVolume(val) {{
-    music.volume = val;
-}}
-</script>
 """
 
 st.markdown(audio_html, unsafe_allow_html=True)
