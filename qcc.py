@@ -101,7 +101,7 @@ def convert_df_to_excel(df):
 
 # Fungsi utama untuk menjalankan aplikasi
 def main():
-    st.title("Database Import Shipment 2024 - EDII")
+    st.title("Database Import Shipment - EDII")
     data = load_data('database_2024.xlsx')
     
     if data is not None:
