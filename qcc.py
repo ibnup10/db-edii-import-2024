@@ -3,31 +3,6 @@ import pandas as pd
 import math
 import os
 
-# ================== CSS FIX FOOTER ==================
-st.markdown("""
-<style>
-.footer-player {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: black;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    color: white;
-    z-index: 999999;
-}
-
-/* supaya konten tidak ketutup footer */
-.block-container {
-    padding-bottom: 80px;
-}
-</style>
-""", unsafe_allow_html=True)
-
 # Konfigurasi halaman Streamlit
 st.set_page_config(page_title='Database - EDII', layout='wide')
 
