@@ -210,7 +210,7 @@ audio_html = f"""
     z-index:9999;
 ">
 
-    <img src="https://tenor.com/view/cat-scuba-dance-gif-5034219186050115128" width="50">
+    <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="50">
 
     <button onclick="toggleMusic()">▶️ / ⏸️</button>
 
