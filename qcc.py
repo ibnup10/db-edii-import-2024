@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import math
 import os
+import streamlit.components.v1 as components
 
 # Konfigurasi halaman Streamlit
 st.set_page_config(page_title='Database - EDII', layout='wide')
@@ -188,22 +189,31 @@ def main():
                 )
         st.write("Updated 23-04-2026 by Hamba Allah")
         st.divider()
-        # ================== FOOTER AUDIO ==================
         audio_file = "static/music.mp3"
 
-        audio_html = f"""
-        <div class="footer-player">
+components.html(f"""
+<div style="
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:black;
+    padding:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    color:white;
+">
 
-        <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="50">
+    <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="75">
 
-            <audio controls autoplay loop style="height:30px;">
-            <source src="{audio_file}" type="audio/mpeg">
-        </audio>
+    <audio controls autoplay loop style="height:30px;">
+        <source src="{audio_file}" type="audio/mpeg">
+    </audio>
 
-        </div>
-        """
-
-    st.markdown(audio_html, unsafe_allow_html=True)
+</div>
+""", height=80)
 
 # Menjalankan aplikasi
 if __name__ == "__main__":
