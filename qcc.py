@@ -189,8 +189,8 @@ def main():
                 )
         st.write("Updated 23-04-2026 by Hamba Allah")
         st.divider()
-        audio_file = "static/music.mp3"
-
+        
+audio_file = "static/music.mp3"
 components.html(f"""
 <div style="
     position:fixed;
