@@ -4,7 +4,7 @@ import math
 import os
 
 # Konfigurasi halaman Streamlit
-st.set_page_config(page_title='Database 2024 - EDII', layout='wide')
+st.set_page_config(page_title='Database - EDII', layout='wide')
 
 # Menambahkan CSS kustom untuk mengatur tampilan
 st.markdown(
