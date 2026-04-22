@@ -189,8 +189,10 @@ def main():
         st.write("Updated 23-04-2026 by Hamba Allah")
         st.divider()
         
-import streamlit.components.v1 as components        
-audio_file = "static/music.m4a"
+import streamlit.components.v1 as components
+
+audio_file = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+
 components.html(f"""
 <div style="
     position:fixed;
@@ -204,16 +206,17 @@ components.html(f"""
     align-items:center;
     gap:15px;
     color:white;
+    font-family:sans-serif;
 ">
 
     <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="50">
 
-    <audio controls autoplay loop style="height:30px;">
+    <audio controls autoplay loop>
         <source src="{audio_file}" type="audio/mpeg">
     </audio>
 
 </div>
-""", height=100)
+""", height=90, scrolling=False)
 # Menjalankan aplikasi
 if __name__ == "__main__":
     main()
