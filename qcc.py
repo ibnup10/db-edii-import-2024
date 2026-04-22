@@ -206,15 +206,14 @@ components.html(f"""
     color:white;
 ">
 
-    <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="75">
+    <img src="https://media1.tenor.com/m/Rd0jrWH5JjgAAAAd/cat-scuba.gif" width="50">
 
     <audio controls autoplay loop style="height:30px;">
         <source src="{audio_file}" type="audio/mpeg">
     </audio>
 
 </div>
-""", height=80)
-
+""", height=100)
 # Menjalankan aplikasi
 if __name__ == "__main__":
     main()
