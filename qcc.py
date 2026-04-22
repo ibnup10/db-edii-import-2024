@@ -188,6 +188,67 @@ def main():
                 )
         st.write("Updated 23-04-2026 by Hamba Allah")
         st.divider()
+audio_file = "static/music.mp3"
+
+audio_html = f"""
+<audio id="bg-music" autoplay loop>
+    <source src="{audio_file}" type="audio/mpeg">
+</audio>
+
+<div style="
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.9);
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    color:white;
+    z-index:9999;
+">
+
+    <button onclick="toggleMusic()" style="
+        background:#4CAF50;
+        border:none;
+        color:white;
+        padding:8px 15px;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+    ">
+        ▶️ / ⏸️
+    </button>
+
+    <span>🎵 Now Playing</span>
+
+    <input type="range" min="0" max="1" step="0.01" value="0.5"
+        onchange="setVolume(this.value)">
+</div>
+
+<script>
+var music = document.getElementById("bg-music");
+
+function toggleMusic() {{
+    if (music.paused) {{
+        music.play();
+    }} else {{
+        music.pause();
+    }}
+}}
+
+function setVolume(val) {{
+    music.volume = val;
+}}
+</script>
+"""
+
+st.markdown(audio_html, unsafe_allow_html=True)
+
+<img src="https://tenor.com/view/cat-scuba-dance-gif-5034219186050115128" width="50">
+<span>🎵 Now Playing</span>
 
 # Menjalankan aplikasi
 if __name__ == "__main__":
