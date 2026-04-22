@@ -187,34 +187,6 @@ def main():
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
         st.write("Updated 23-04-2026 by Hamba Allah")
-        st.divider()
-        
-import streamlit.components.v1 as components
-
-import streamlit.components.v1 as components
-
-components.html("""
-<div style="
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:black;
-    padding:10px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-">
-
-    <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150"
-    style="width:100%;max-width:500px;overflow:hidden;border-radius:10px;"
-    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-    src="https://embed.music.apple.com/us/album/kicau-mania-single/1870566298">
-    </iframe>
-
-</div>
-""", height=170)
 # Menjalankan aplikasi
 if __name__ == "__main__":
     main()
