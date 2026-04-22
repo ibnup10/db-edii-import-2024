@@ -189,5 +189,4 @@ def main():
 # Menjalankan aplikasi
 if __name__ == "__main__":
     main()
-    st.footer()
     st.write("Updated 23-04-2026 by Hamba Allah")
