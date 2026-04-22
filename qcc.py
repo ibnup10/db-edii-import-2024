@@ -201,28 +201,18 @@ audio_html = f"""
     left:0;
     width:100%;
     background:rgba(0,0,0,0.9);
-    padding:10px 20px;
+    padding:10px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    gap:20px;
+    align-items:center;
+    gap:15px;
     color:white;
-    z-index:9999;
 ">
 
-    <button onclick="toggleMusic()" style="
-        background:#4CAF50;
-        border:none;
-        color:white;
-        padding:8px 15px;
-        border-radius:8px;
-        cursor:pointer;
-        font-size:16px;
-    ">
-        ▶️ / ⏸️
-    </button>
+    <!-- ✅ GIF HARUS DI DALAM STRING -->
+    <img src="https://tenor.com/view/cat-scuba-dance-gif-5034219186050115128" width="50">
 
-    <span>🎵 Now Playing</span>
+    <button onclick="toggleMusic()">▶️ / ⏸️</button>
 
     <input type="range" min="0" max="1" step="0.01" value="0.5"
         onchange="setVolume(this.value)">
@@ -246,9 +236,6 @@ function setVolume(val) {{
 """
 
 st.markdown(audio_html, unsafe_allow_html=True)
-
-<img src="https://tenor.com/view/cat-scuba-dance-gif-5034219186050115128" width="50">
-<span>Now Playing</span>
 
 # Menjalankan aplikasi
 if __name__ == "__main__":
